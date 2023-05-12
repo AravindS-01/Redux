@@ -1,38 +1,46 @@
-.App {
-  text-align: center;
+.card{
+  padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 14px;
+    background-color: darkgray;
+    margin: 2rem auto;
+    max-width: 60rem;
+    width: 90%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.meal_add_button{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.input_button_label{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-content: center;
 }
-
-.App-link {
-  color: #61dafb;
+.input_button{
+  display: flex;
+  align-content: center;
+  margin-bottom: 5px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.labelText{
+  font-weight: 700;
+  margin-right: 1rem;
+}
+.input_size{
+  height:20px;
+  border:2px solid #ccc;
+  border-radius: 5px;
+ width:3rem;
+ outline:none;
+}
+.buttonProp{
+  border:2px solid #ccc;
+  border-radius: 20px;
+  height:2rem;
+  background-color: burlywood;
+  cursor:pointer;
+  font-weight: 700;
+  font-size: 14px;
 }
