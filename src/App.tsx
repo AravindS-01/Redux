@@ -5,6 +5,7 @@ import Card from './components/cardComponent/Cards';
 import BurgerCombo from './assest/Burger.png'
 import Burger from './assest/burgerImg.png'
 import riceBowl from './assest/riceBowlImage.png'
+import MealListItem from './MealListItem';
 
 
 const dishes = [
@@ -39,7 +40,7 @@ const dishes = [
 ]
 function App() {
 
-  const onAddDishes =() =>{}
+ 
   return (
     <Fragment>
       <div className='card' style={{backgroundImage:`url(${Burger})`,backgroundSize: ' 100% 100%',backgroundRepeat: 'no-repeat',}}>
@@ -47,21 +48,7 @@ function App() {
           {dishes.map(meal => {
             return (
               <>
-                <li className='meal_add_button'>
-                  <div>
-                    <h3>{meal.dishName}</h3>
-                    <div  style={{fontStyle:'italic'}}>{meal.description}</div>
-                    <div style={{fontWeight:'bold'}}>₹{meal.price}</div>
-                  </div>
-                  <div className='input_button_label'>
-                    <div className='input_button'>
-                    <label className='labelText'>{'Amount'}</label>
-                    <input type='number' className='input_size' min='1' defaultValue ='1'></input>
-                    </div>
-                    <button className='buttonProp' onClick={onAddDishes}>Add +</button>
-                  </div>
-                </li>
-                <hr/>
+                <MealListItem meal={meal}></MealListItem>
               </>
             )
           })}
