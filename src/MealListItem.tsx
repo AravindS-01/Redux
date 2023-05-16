@@ -1,4 +1,6 @@
-import React, { useRef } from "react";
+import React, { useCallback, useRef } from "react";
+import { useAppDispatch, useAppSelector } from "./redux/hook";
+import { addMeal } from "./redux/reducer";
 
 interface MealProp {
   meal: {
@@ -12,10 +14,18 @@ interface MealProp {
 
 const MealListItem: React.FC<MealProp> = (props) => {
   const { meal } = props;
+  const dispatch = useAppDispatch();
   const itemRef = useRef<HTMLInputElement>(null);
-console.log("itemRef",itemRef)
-  const onAddDishes = () => {console.log("itemRef",itemRef)
-};
+  const onAddDishes = useCallback((meals: any) => {
+    let noOfitems = itemRef.current?.value;
+    const newDish = {
+      ...meals,
+      numberOfItem: noOfitems
+    };
+
+    dispatch(addMeal(newDish))
+
+  }, [dispatch]);
   return (
     <>
       <li className="meal_add_button">
@@ -36,7 +46,7 @@ console.log("itemRef",itemRef)
               defaultValue="1"
             ></input>
           </div>
-          <button className="buttonProp" onClick={onAddDishes}>
+          <button className="buttonProp" onClick={() => { onAddDishes(meal) }}>
             Add +
           </button>
         </div>
